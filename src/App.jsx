@@ -16,14 +16,14 @@ function App() {
   dayjs.extend(customParseFormat);
   const param = new URLSearchParams(window.location.search);
   const dateParam = param.get("date");
-  const [date, setDate] = useState("2024-09-03");
+  const [date, setDate] = useState("2024-09-03 00:00");
 
   useEffect(() => {
     if (
       dateParam !== null &&
       dateParam !== undefined &&
       dateParam !== "" &&
-      dayjs(dateParam, "YYYY-MM-DD", true).isValid()
+      dayjs(dateParam, "YYYY-MM-DD HH:mm", true).isValid()
     ) {
       setDate(dateParam);
     }
@@ -31,9 +31,12 @@ function App() {
   return (
     <>
       <div className="bg-[#1e1e28] h-screen text-white flex flex-col justify-center items-center relative">
-        <h1 className="mb-20 text-3xl md:text-xl text-center font-bold tracking-widest">
-          WE'RE LAUNCHING SOON
-        </h1>
+        <div className="">
+          <h1 className="mb-5 text-3xl md:text-xl text-center font-bold tracking-widest">
+            WE'RE LAUNCHING SOON
+          </h1>
+          <h2 className="mb-10 text-lg text-center font-bold">{date}</h2>
+        </div>
         <FlipClockCountdown to={dayjs(date).tz("Asia/Jakarta").valueOf()}>
           Finished
         </FlipClockCountdown>
