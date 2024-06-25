@@ -41,6 +41,9 @@
   position: relative;
   display: flex;
   align-items: center;
+  box-shadow: 0px 6px 0px -1px hsl(234, 17%, 12%);
+  -webkit-box-shadow: 0px 6px 0px -1px hsl(234, 17%, 12%);
+  -moz-box-shadow: 0px 6px 0px -1px hsl(234, 17%, 12%);
 }
 
 ._3cpN7:after {
@@ -72,7 +75,7 @@
   text-transform: uppercase;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 150%);
+  transform: translate(-50%, 250%);
 }
 ._2EBbg {
   /* angka digit */
@@ -86,6 +89,12 @@
   height: var(--fcc-digit-block-height);
   /* box-shadow: var(--fcc-shadow); */
   /* border-radius: var(--fcc-digit-block-radius); */
+}
+._2EBbg:nth-child(odd) {
+  border-radius: 0px 5px 5px 0px;
+}
+._2EBbg:nth-child(even) {
+  border-radius: 5px 0px 0px 5px;
 }
 ._106d2,
 ._SKh-V {
