@@ -18,6 +18,9 @@ function App() {
   const dateParam = param.get("date");
   const [date, setDate] = useState("2024-09-03 00:00");
 
+  console.log(dayjs().format("DD MMMM YYYY HH:mm"));
+  console.log(dayjs().format("dddd"));
+
   useEffect(() => {
     if (
       dateParam !== null &&
@@ -35,7 +38,11 @@ function App() {
           <h1 className="mb-5 text-3xl md:text-xl text-center font-bold tracking-widest">
             WE'RE LAUNCHING SOON
           </h1>
-          <h2 className="mb-10 text-lg text-center font-bold">{date}</h2>
+          <h2 className="mb-10 text-lg text-center font-bold">
+            {`${dayjs(date).format("dddd")} , ${dayjs(date).format(
+              "D MMMM YYYY HH:mm"
+            )}`}
+          </h2>
         </div>
         <FlipClockCountdown to={dayjs(date).tz("Asia/Jakarta").valueOf()}>
           Finished
